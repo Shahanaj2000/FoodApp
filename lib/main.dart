@@ -19,9 +19,7 @@ class MyAPP extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Metropolis',
         primarySwatch: Colors.red,
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(color: AppColor.secondary),
-        ),
+        
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(
@@ -31,6 +29,12 @@ class MyAPP extends StatelessWidget {
             elevation: MaterialStateProperty.all(0),
           ),
         ),
+
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(color: AppColor.primary, fontSize: 25),
+          bodyMedium: TextStyle(color: AppColor.secondary),
+        ),
+        
       ),
       home: const SplashScreen(),
       routes: {
