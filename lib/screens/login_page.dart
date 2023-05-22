@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/cont/colors.dart';
-import 'package:food_app/utils/helpers.dart';
+import '../cont/colors.dart';
+import '../screens/signUpScreen.dart';
+import '../utils/helpers.dart';
+
+import '../widgets/customTextFeild.dart';
 
 class LoginScreen extends StatelessWidget {
   static const routeName = "/loginScreen";
@@ -9,7 +12,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: SizedBox(
         width: Helper.getScreenWidth(context),
         height: Helper.getScreenHeight(context),
         child: SafeArea(
@@ -21,7 +24,7 @@ class LoginScreen extends StatelessWidget {
                   'Login',
                   style: Helper.getTheme(context).titleLarge,
                 ),
-                Spacer(),
+                const Spacer(),
                 const Text('Add your details to login'),
                 const SizedBox(
                   height: 20,
@@ -29,26 +32,26 @@ class LoginScreen extends StatelessWidget {
                 const CustomTextInput(
                   hintText: 'Your email',
                 ),
-                Spacer(),
+                const Spacer(),
                 const CustomTextInput(hintText: 'password'),
-                Spacer(),
+                const Spacer(),
                 SizedBox(
                   height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
                       onPressed: () {}, child: const Text('Login')),
                 ),
-                Spacer(),
+                const Spacer(),
                 InkWell(
                   onTap: () {},
                   child: const Text('Forget Your Password?'),
                 ),
-                Spacer(flex: 2,),
+                const Spacer(flex: 2,),
                 InkWell(
                   onTap: () {},
                   child: const Text('Or Login With'),
                 ),
-                Spacer(),
+                const Spacer(),
                 SizedBox(
                   height: 50,
                   width: double.infinity,
@@ -63,13 +66,13 @@ class LoginScreen extends StatelessWidget {
                         Image.asset(
                           Helper.getAssetName("fb.png", "virtual"),
                         ),
-                        SizedBox(width: 30,),
+                        const SizedBox(width: 30,),
                         const Text('Login with Facebook')
                       ],
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 SizedBox(
                   height: 50,
                   width: double.infinity,
@@ -90,9 +93,11 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Spacer(flex: 4,),
+                const Spacer(flex: 4,),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushReplacementNamed(SignUpScreen.routeName);
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
@@ -110,32 +115,4 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-class CustomTextInput extends StatelessWidget {
-  const CustomTextInput({
-    required this.hintText,
-    super.key,
-  });
 
-  final String hintText;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 50,
-      decoration: const ShapeDecoration(
-        color: AppColor.placeholderBg,
-        shape: StadiumBorder(),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: hintText,
-            hintStyle: const TextStyle(
-              color: AppColor.placeholder,
-            ),
-            contentPadding: const EdgeInsets.only(left: 40)),
-      ),
-    );
-  }
-}

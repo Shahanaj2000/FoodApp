@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/cont/colors.dart';
 import 'package:food_app/screens/login_page.dart';
+import 'package:food_app/screens/signUpScreen.dart';
 
 import './screens/spashscreen.dart';
 import './screens/landingScreen.dart';
@@ -40,6 +41,8 @@ class MyAPP extends StatelessWidget {
       routes: {
         LandingScreen.routeName: (context) => const LandingScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
+        SignUpScreen.routeName: (context) => const SignUpScreen(),
+
       },
     );
   }
