@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/screens/forgetPwd.dart';
 import '../cont/colors.dart';
 import '../screens/signUpScreen.dart';
 import '../utils/helpers.dart';
@@ -21,7 +22,7 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  'Login',
+                  'LogIn',
                   style: Helper.getTheme(context).titleLarge,
                 ),
                 const Spacer(),
@@ -43,7 +44,9 @@ class LoginScreen extends StatelessWidget {
                 ),
                 const Spacer(),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context).pushReplacementNamed(ForgetPwd.routeName);
+                  },
                   child: const Text('Forget Your Password?'),
                 ),
                 const Spacer(flex: 2,),

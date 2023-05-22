@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/cont/colors.dart';
+import 'package:food_app/screens/forgetPwd.dart';
 import 'package:food_app/screens/login_page.dart';
 import 'package:food_app/screens/signUpScreen.dart';
 
@@ -42,6 +43,8 @@ class MyAPP extends StatelessWidget {
         LandingScreen.routeName: (context) => const LandingScreen(),
         LoginScreen.routeName: (context) => const LoginScreen(),
         SignUpScreen.routeName: (context) => const SignUpScreen(),
+        ForgetPwd.routeName: (context) => const ForgetPwd(),
+        
 
       },
     );
