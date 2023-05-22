@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/screens/forgetPwd.dart';
+import '../screens/forgetPwd.dart';
 import '../cont/colors.dart';
 import '../screens/signUpScreen.dart';
 import '../utils/helpers.dart';

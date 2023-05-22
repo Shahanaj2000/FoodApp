@@ -1,8 +1,8 @@
 import 'package:clip_shadow/clip_shadow.dart';
 import 'package:flutter/material.dart';
-import 'package:food_app/screens/login_page.dart';
-import 'package:food_app/screens/signUpScreen.dart';
-import 'package:food_app/utils/helpers.dart';
+import '../screens/login_page.dart';
+import '../screens/signUpScreen.dart';
+import '../utils/helpers.dart';
 
 import '../cont/colors.dart';
 

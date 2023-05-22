@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/cont/colors.dart';
-import 'package:food_app/screens/forgetPwd.dart';
-import 'package:food_app/utils/helpers.dart';
+import '../cont/colors.dart';
+import '../screens/forgetPwd.dart';
+import '../screens/newPwd.dart';
+import '../utils/helpers.dart';
 
 class SendOTPScreen extends StatelessWidget {
   static const routeName = "/sendOTP";
@@ -52,7 +53,7 @@ class SendOTPScreen extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      
+                      Navigator.of(context).pushReplacementNamed(NewPassword.routeName);
                     },
                     child: const Text('Next'),
                   ),
