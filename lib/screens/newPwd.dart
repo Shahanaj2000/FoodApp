@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/screens/indroScreen.dart';
 import '../utils/helpers.dart';
 import '../widgets/customTextFeild.dart';
 
@@ -43,7 +44,9 @@ class NewPassword extends StatelessWidget {
                   height: 50,
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushReplacementNamed(IndroScreen.routeName);
+                    },
                     child: const Text("Next"),
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/cont/colors.dart';
 import 'package:food_app/screens/forgetPwd.dart';
+import 'package:food_app/screens/indroScreen.dart';
 import 'package:food_app/screens/login_page.dart';
 import 'package:food_app/screens/newPwd.dart';
 import 'package:food_app/screens/sentOTPScreeen.dart';
@@ -48,6 +49,7 @@ class MyAPP extends StatelessWidget {
         ForgetPwd.routeName: (context) => const ForgetPwd(),
         SendOTPScreen.routeName: (context) => const SendOTPScreen(),
         NewPassword.routeName: (context) => const NewPassword(),
+        IndroScreen.routeName: (context) =>  IndroScreen(),
       },
     );
   }
