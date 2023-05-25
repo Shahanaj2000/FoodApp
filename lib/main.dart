@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/cont/colors.dart';
 import 'package:food_app/screens/forgetPwd.dart';
+import 'package:food_app/screens/homeScreen.dart';
 import 'package:food_app/screens/indroScreen.dart';
 import 'package:food_app/screens/login_page.dart';
 import 'package:food_app/screens/newPwd.dart';
@@ -34,9 +35,18 @@ class MyAPP extends StatelessWidget {
             elevation: MaterialStateProperty.all(0),
           ),
         ),
+        
+        textButtonTheme: TextButtonThemeData(
+          style: ButtonStyle(
+            foregroundColor: MaterialStateProperty.all(AppColor.orange)
+          )
+        ),
 
         textTheme: const TextTheme(
           titleLarge: TextStyle(color: AppColor.primary, fontSize: 25),
+          headlineSmall: TextStyle(color: AppColor.primary, fontSize: 25, fontWeight: FontWeight.normal),
+          displaySmall: TextStyle(color: AppColor.primary, fontSize: 16, fontWeight: FontWeight.bold),
+          headlineMedium: TextStyle(color: AppColor.secondary, fontSize: 20, fontWeight: FontWeight.bold),
           bodyMedium: TextStyle(color: AppColor.secondary),
         ),
         
@@ -50,6 +60,7 @@ class MyAPP extends StatelessWidget {
         SendOTPScreen.routeName: (context) => const SendOTPScreen(),
         NewPassword.routeName: (context) => const NewPassword(),
         IndroScreen.routeName: (context) =>  IndroScreen(),
+        HomeScreen.routeName: (context) =>  const HomeScreen(),
       },
     );
   }

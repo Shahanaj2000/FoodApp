@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/cont/colors.dart';
+import 'package:food_app/screens/homeScreen.dart';
 import 'package:food_app/utils/helpers.dart';
 
 class IndroScreen extends StatefulWidget {
@@ -72,22 +73,33 @@ class _IndroScreenState extends State<IndroScreen> {
                 children: [
                   CircleAvatar(
                     radius: 5,
-                    backgroundColor: count == 0 ? AppColor.orange : AppColor.placeholder,
+                    backgroundColor:
+                        count == 0 ? AppColor.orange : AppColor.placeholder,
                   ),
-                  const SizedBox(width: 5,),
-                   CircleAvatar(
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  CircleAvatar(
                     radius: 5,
-                    backgroundColor: count == 1 ? AppColor.orange : AppColor.placeholder,
+                    backgroundColor:
+                        count == 1 ? AppColor.orange : AppColor.placeholder,
                   ),
-                  const SizedBox(width: 5,),
-                   CircleAvatar(
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  CircleAvatar(
                     radius: 5,
-                    backgroundColor: count == 2 ? AppColor.orange : AppColor.placeholder,
+                    backgroundColor:
+                        count == 2 ? AppColor.orange : AppColor.placeholder,
                   ),
-                  const SizedBox(width: 5,),
+                  const SizedBox(
+                    width: 5,
+                  ),
                 ],
               ),
-              SizedBox(height: 27,),
+              SizedBox(
+                height: 27,
+              ),
               Text(
                 _pages[count]["title"]!,
                 style: Helper.getTheme(context).titleLarge,
@@ -105,7 +117,12 @@ class _IndroScreenState extends State<IndroScreen> {
               SizedBox(
                 height: 50,
                 width: double.infinity,
-                child: ElevatedButton(onPressed: () {}, child: const Text('Next'),),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed(HomeScreen.routeName);
+                  },
+                  child: const Text('Next'),
+                ),
               ),
             ],
           ),
