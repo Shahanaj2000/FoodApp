@@ -183,17 +183,26 @@ class HomeScreen extends StatelessWidget {
                 height: 20,
               ),
               RestaurantCard(
-                image: Image.asset(Helper.getAssetName("pizza2.jpg", "real"), fit: BoxFit.cover,),
+                image: Image.asset(
+                  Helper.getAssetName("pizza2.jpg", "real"),
+                  fit: BoxFit.cover,
+                ),
                 name: "Minute by tuk tuk",
               ),
 
-               RestaurantCard(
-                image: Image.asset(Helper.getAssetName("breakfast.jpg", "real"), fit: BoxFit.cover,),
+              RestaurantCard(
+                image: Image.asset(
+                  Helper.getAssetName("breakfast.jpg", "real"),
+                  fit: BoxFit.cover,
+                ),
                 name: "Cafe de Noir",
               ),
 
-               RestaurantCard(
-                image: Image.asset(Helper.getAssetName("bakery.jpg", "real"), fit: BoxFit.cover,),
+              RestaurantCard(
+                image: Image.asset(
+                  Helper.getAssetName("bakery.jpg", "real"),
+                  fit: BoxFit.cover,
+                ),
                 name: "Bakes by Tella",
               ),
 
@@ -201,9 +210,48 @@ class HomeScreen extends StatelessWidget {
                 height: 30,
               ),
 
-              
-              
-              
+              //! Most Popular
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Most Popular",
+                      style: Helper.getTheme(context).titleLarge,
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text("View all"),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 250,
+                width: double.infinity,
+                padding: const EdgeInsets.only(left: 20),
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      MostPopularCard(image: Image.asset(Helper.getAssetName("coffee.jpg", "real"), fit: BoxFit.cover,), name: "Cafe De Bambaa",),
+                      const SizedBox(width: 30,),
+                      MostPopularCard(image: Image.asset(Helper.getAssetName("hamburger.jpg", "real"), fit: BoxFit.cover,), name: "Berger by Bella",),
+                      const SizedBox(width: 30,),
+
+                      MostPopularCard(image: Image.asset(Helper.getAssetName("dessert.jpg", "real"), fit: BoxFit.cover,), name: "Milano Ice Cream",),
+                      const SizedBox(width: 30,),
+                      MostPopularCard(image: Image.asset(Helper.getAssetName("pizza4.jpg", "real"), fit: BoxFit.cover,), name: "Pizza Hut",),
+                      const SizedBox(width: 30,),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 50,)
             ],
           ),
         ),
@@ -212,9 +260,81 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+class MostPopularCard extends StatelessWidget {
+  const MostPopularCard({
+    super.key, required this.image, required this.name,
+  });
+
+
+  final Image image;
+  final String name;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: SizedBox(
+            width: 300,
+            height: 200,
+            child: image,
+          ),
+        ),
+        const SizedBox(height: 10,),
+        Text(
+          name,
+          style: Helper.getTheme(context)
+              .headlineMedium!
+              .copyWith(color: AppColor.primary),
+        ),
+        Row(
+          children: [
+            const Text("Cafe"),
+            const SizedBox(
+              width: 5,
+            ),
+            const Padding(
+              padding:  EdgeInsets.only(bottom: 5.0),
+              child: Text(
+                ".",
+                style: TextStyle(
+                    color: AppColor.orange,
+                    fontWeight: FontWeight.w900),
+              ),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            const Text("Western Food"),
+            const SizedBox(
+              width: 20,
+            ),
+            Image.asset(
+              Helper.getAssetName(
+                  "star_filled.png", "virtual"),
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            const Text(
+              "4.9",
+              style: TextStyle(
+                color: AppColor.orange,
+              ),
+            )
+          ],
+        ),
+      ],
+    );
+  }
+}
+
 class RestaurantCard extends StatelessWidget {
   const RestaurantCard({
-    super.key, required this.name, required this.image,
+    super.key,
+    required this.name,
+    required this.image,
   });
 
   final String name;
@@ -228,11 +348,7 @@ class RestaurantCard extends StatelessWidget {
       //color: Colors.red,
       child: Column(
         children: [
-          SizedBox(
-            height: 200,
-            width: double.infinity,
-            child: image
-          ),
+          SizedBox(height: 200, width: double.infinity, child: image),
           const SizedBox(
             height: 10,
           ),
@@ -242,30 +358,47 @@ class RestaurantCard extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Text(name,
-                        style: Helper.getTheme(context).displaySmall),
+                    Text(name, style: Helper.getTheme(context).displaySmall),
                   ],
                 ),
-                const SizedBox(height: 5,),
+                const SizedBox(
+                  height: 5,
+                ),
                 Row(
                   children: [
                     Image.asset(
-                      Helper.getAssetName(
-                          "star_filled.png", "virtual"),
+                      Helper.getAssetName("star_filled.png", "virtual"),
                     ),
-                    const SizedBox(width: 5,),
-                    const Text("4.9", style: TextStyle(color: AppColor.orange),),
-                    const SizedBox(width: 5,),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    const Text(
+                      "4.9",
+                      style: TextStyle(color: AppColor.orange),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     const Text("(125 raitings)"),
-                    const SizedBox(width: 5,),
-                    const Text("Cafe"),
-                    const SizedBox(width: 5,),
-                    const Padding(
-                      padding:  EdgeInsets.only(bottom: 5.0),
-                      child: Text(".", style: TextStyle(color: AppColor.orange, fontWeight: FontWeight.w900),),
+                    const SizedBox(
+                      width: 5,
                     ),
-
-                    const SizedBox(width: 5,),
+                    const Text("Cafe"),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(bottom: 5.0),
+                      child: Text(
+                        ".",
+                        style: TextStyle(
+                            color: AppColor.orange,
+                            fontWeight: FontWeight.w900),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
                     const Text("Western Food"),
                   ],
                 ),
