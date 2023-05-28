@@ -238,20 +238,97 @@ class HomeScreen extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      MostPopularCard(image: Image.asset(Helper.getAssetName("coffee.jpg", "real"), fit: BoxFit.cover,), name: "Cafe De Bambaa",),
-                      const SizedBox(width: 30,),
-                      MostPopularCard(image: Image.asset(Helper.getAssetName("hamburger.jpg", "real"), fit: BoxFit.cover,), name: "Berger by Bella",),
-                      const SizedBox(width: 30,),
-
-                      MostPopularCard(image: Image.asset(Helper.getAssetName("dessert.jpg", "real"), fit: BoxFit.cover,), name: "Milano Ice Cream",),
-                      const SizedBox(width: 30,),
-                      MostPopularCard(image: Image.asset(Helper.getAssetName("pizza4.jpg", "real"), fit: BoxFit.cover,), name: "Pizza Hut",),
-                      const SizedBox(width: 30,),
+                      MostPopularCard(
+                        image: Image.asset(
+                          Helper.getAssetName("coffee.jpg", "real"),
+                          fit: BoxFit.cover,
+                        ),
+                        name: "Cafe De Bambaa",
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      MostPopularCard(
+                        image: Image.asset(
+                          Helper.getAssetName("hamburger.jpg", "real"),
+                          fit: BoxFit.cover,
+                        ),
+                        name: "Berger by Bella",
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      MostPopularCard(
+                        image: Image.asset(
+                          Helper.getAssetName("dessert.jpg", "real"),
+                          fit: BoxFit.cover,
+                        ),
+                        name: "Milano Ice Cream",
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      MostPopularCard(
+                        image: Image.asset(
+                          Helper.getAssetName("pizza4.jpg", "real"),
+                          fit: BoxFit.cover,
+                        ),
+                        name: "Pizza Hut",
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
                     ],
                   ),
                 ),
               ),
-              const SizedBox(height: 50,)
+              const SizedBox(
+                height: 50,
+              ),
+              //! Recent Items
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Recent Items",
+                      style: Helper.getTheme(context).titleLarge,
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text("View all"),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Column(
+                  children: [
+                    RecentItemCard(
+                      image: Image.asset(Helper.getAssetName("pizza3.jpg", "real"), fit: BoxFit.cover,),
+                      name: "Mulberry Pizza by Josh",
+                    ),
+
+                    RecentItemCard(
+                      image: Image.asset(Helper.getAssetName("coffee3.jpg", "real"), fit: BoxFit.cover,),
+                      name: "Cafe Coffee Day",
+                    ),
+
+                    RecentItemCard(
+                      image: Image.asset(Helper.getAssetName("bakery.jpg", "real"), fit: BoxFit.cover,),
+                      name: "MRA Bakes",
+                    ),
+
+                    RecentItemCard(
+                      image: Image.asset(Helper.getAssetName("dessert4.jpg", "real"), fit: BoxFit.cover,),
+                      name: "Ice Parlour",
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -260,11 +337,102 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class MostPopularCard extends StatelessWidget {
-  const MostPopularCard({
-    super.key, required this.image, required this.name,
+class RecentItemCard extends StatelessWidget {
+  const RecentItemCard({
+    super.key, required this.name, required this.image,
   });
 
+  final String name;
+  final Image image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: SizedBox(
+            width: 80,
+            height: 80,
+            child: image,
+          ),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        Expanded(
+          child: SizedBox(
+            height: 100,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: Helper.getTheme(context)
+                      .headlineMedium!
+                      .copyWith(color: AppColor.primary),
+                ),
+                Row(
+                  children: const[
+                    Text("Cafe"),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Padding(
+                      padding:
+                           EdgeInsets.only(bottom: 5.0),
+                      child: Text(
+                        ".",
+                        style: TextStyle(
+                          color: AppColor.orange,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text("Western Food"),
+                    SizedBox(
+                      width: 20,
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Image.asset(
+                      Helper.getAssetName(
+                          "star_filled.png", "virtual"),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    const Text(
+                      "4.9",
+                      style: TextStyle(
+                        color: AppColor.orange,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    const Text('(124) Ratings')
+                  ],
+                )
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
+class MostPopularCard extends StatelessWidget {
+  const MostPopularCard({
+    super.key,
+    required this.image,
+    required this.name,
+  });
 
   final Image image;
   final String name;
@@ -281,7 +449,9 @@ class MostPopularCard extends StatelessWidget {
             child: image,
           ),
         ),
-        const SizedBox(height: 10,),
+        const SizedBox(
+          height: 10,
+        ),
         Text(
           name,
           style: Helper.getTheme(context)
@@ -295,12 +465,11 @@ class MostPopularCard extends StatelessWidget {
               width: 5,
             ),
             const Padding(
-              padding:  EdgeInsets.only(bottom: 5.0),
+              padding: EdgeInsets.only(bottom: 5.0),
               child: Text(
                 ".",
                 style: TextStyle(
-                    color: AppColor.orange,
-                    fontWeight: FontWeight.w900),
+                    color: AppColor.orange, fontWeight: FontWeight.w900),
               ),
             ),
             const SizedBox(
@@ -311,8 +480,7 @@ class MostPopularCard extends StatelessWidget {
               width: 20,
             ),
             Image.asset(
-              Helper.getAssetName(
-                  "star_filled.png", "virtual"),
+              Helper.getAssetName("star_filled.png", "virtual"),
             ),
             const SizedBox(
               width: 5,
