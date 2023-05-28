@@ -4,7 +4,11 @@ import 'package:food_app/screens/forgetPwd.dart';
 import 'package:food_app/screens/homeScreen.dart';
 import 'package:food_app/screens/indroScreen.dart';
 import 'package:food_app/screens/login_page.dart';
+import 'package:food_app/screens/menuScreen.dart';
+import 'package:food_app/screens/moreScreen.dart';
 import 'package:food_app/screens/newPwd.dart';
+import 'package:food_app/screens/offerScreen.dart';
+import 'package:food_app/screens/profileScreen.dart';
 import 'package:food_app/screens/sentOTPScreeen.dart';
 import 'package:food_app/screens/signUpScreen.dart';
 
@@ -61,6 +65,10 @@ class MyAPP extends StatelessWidget {
         NewPassword.routeName: (context) => const NewPassword(),
         IndroScreen.routeName: (context) =>  IndroScreen(),
         HomeScreen.routeName: (context) =>  const HomeScreen(),
+        MenuScreen.routeName: (context) =>  const MenuScreen(),
+        OfferScreen.routeName: (context) =>  const OfferScreen(),
+        ProfileScreen.routeName: (context) =>  const ProfileScreen(),
+        MoreScreen.routeName: (context) =>  const MoreScreen(),
       },
     );
   }
