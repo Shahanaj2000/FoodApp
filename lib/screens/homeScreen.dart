@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/widgets/customNavBar.dart';
+import 'package:food_app/widgets/searchBar.dart';
 import '../cont/colors.dart';
 import '../utils/helpers.dart';
 
@@ -66,29 +67,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    child: Container(
-                      height: 50,
-                      width: double.infinity,
-                      decoration: const ShapeDecoration(
-                        color: AppColor.placeholderBg,
-                        shape: StadiumBorder(),
-                      ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          prefixIcon: Image.asset(
-                            Helper.getAssetName("search_filled.png", "virtual"),
-                          ),
-                          hintText: "Search Food!",
-                          hintStyle: const TextStyle(
-                              color: AppColor.placeholder, fontSize: 18),
-                          contentPadding: const EdgeInsets.only(top: 17),
-                        ),
-                      ),
-                    ),
-                  ),
+                  const SearchBar(),
                   const SizedBox(
                     height: 20,
                   ),
