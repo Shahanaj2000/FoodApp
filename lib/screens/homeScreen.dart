@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/screens/individualScreen.dart';
 import 'package:food_app/widgets/customNavBar.dart';
 import 'package:food_app/widgets/searchBar.dart';
 import '../cont/colors.dart';
@@ -290,12 +291,17 @@ class HomeScreen extends StatelessWidget {
                         horizontal: 20, vertical: 20),
                     child: Column(
                       children: [
-                        RecentItemCard(
-                          image: Image.asset(
-                            Helper.getAssetName("pizza3.jpg", "real"),
-                            fit: BoxFit.cover,
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pushNamed(IndividualScreen.routeName);
+                          },
+                          child: RecentItemCard(
+                            image: Image.asset(
+                              Helper.getAssetName("pizza3.jpg", "real"),
+                              fit: BoxFit.cover,
+                            ),
+                            name: "Mulberry Pizza by Josh",
                           ),
-                          name: "Mulberry Pizza by Josh",
                         ),
                         RecentItemCard(
                           image: Image.asset(
@@ -325,11 +331,11 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             left: 0,
             child: CustomNavBar(
-             
+             home: true,
             ),
           ),
         ],

@@ -3,6 +3,7 @@ import 'package:food_app/cont/colors.dart';
 import 'package:food_app/screens/dessert.dart';
 import 'package:food_app/screens/forgetPwd.dart';
 import 'package:food_app/screens/homeScreen.dart';
+import 'package:food_app/screens/individualScreen.dart';
 import 'package:food_app/screens/indroScreen.dart';
 import 'package:food_app/screens/login_page.dart';
 import 'package:food_app/screens/menuScreen.dart';
@@ -71,6 +72,7 @@ class MyAPP extends StatelessWidget {
         ProfileScreen.routeName: (context) =>  const ProfileScreen(),
         MoreScreen.routeName: (context) =>  const MoreScreen(),
         DessertScreen.routeName: (context) =>  const DessertScreen(),
+        IndividualScreen.routeName: (context) =>  const IndividualScreen(),
       },
     );
   }
